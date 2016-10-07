@@ -1,0 +1,27 @@
+digraph graphname {
+	graph [rankdir=LR, rank=same];
+	node [label="\N"];
+	graph [bb="0,0,2046,144"];
+	_checks [label="/checks", URL=topic_3A_checks, shape=box, pos="1074,18", width="0.91667", height="0.5"];
+	_plans [label="/plans", URL=topic_3A_plans, shape=box, pos="1607,126", width="0.77778", height="0.5"];
+	_intentions [label="/intentions", URL=topic_3A_intentions, shape=box, pos="1074,126", width="1.25", height="0.5"];
+	_bdi_attitude [label="/bdi_attitude", URL=topic_3A_bdi_attitude, shape=box, pos="498,72", width="1.4444", height="0.5"];
+	_perception_bdi_2428_1405440299042 [label="/perception_bdi_2428_1405440299042", URL=_perception_bdi_2428_1405440299042, shape=ellipse, pos="205,72", width="5.6667", height="0.51389"];
+	_json_prolog [label="/json_prolog", URL=_json_prolog, shape=ellipse, pos="205,126", width="1.9444", height="0.51389"];
+	_deliberation_8950_1405505528590 [label="/deliberation_8950_1405505528590", URL=_deliberation_8950_1405505528590, shape=ellipse, pos="789,126", width="5.3056", height="0.51389"];
+	_appraisal_emo_7881_1405501417382 [label="/appraisal_emo_7881_1405501417382", URL=_appraisal_emo_7881_1405501417382, shape=ellipse, pos="789,72", width="5.6389", height="0.51389"];
+	_scheduler_11501_1405513142861 [label="/scheduler_11501_1405513142861", URL=_scheduler_11501_1405513142861, shape=ellipse, pos="1859,126", width="5.1667", height="0.51389"];
+	_rostopic_490_1405438515570 [label="/rostopic_490_1405438515570", URL=_rostopic_490_1405438515570, shape=ellipse, pos="1349,18", width="4.5833", height="0.51389"];
+	_appraisal_secs_2369_1405440289628 [label="/appraisal_secs_2369_1405440289628", URL=_appraisal_secs_2369_1405440289628, shape=ellipse, pos="789,18", width="5.6389", height="0.51389"];
+	_planification_9172_1405506129110 [label="/planification_9172_1405506129110", URL=_planification_9172_1405506129110, shape=ellipse, pos="1349,126", width="5.3333", height="0.51389"];
+	_appraisal_secs_2369_1405440289628 -> _checks [pos="e,1040.4,18 992.33,18 1006.1,18 1018.9,18 1030.2,18"];
+	_bdi_attitude -> _appraisal_secs_2369_1405440289628 [pos="e,659.85,31.914 550.21,54.429 561.89,50.933 574.29,47.557 586,45 606.47,40.532 628.26,36.69 649.7,33.423"];
+	_bdi_attitude -> _appraisal_emo_7881_1405501417382 [pos="e,585.76,72 550.02,72 558.01,72 566.64,72 575.73,72"];
+	_bdi_attitude -> _deliberation_8950_1405505528590 [pos="e,662.55,112.48 550.21,89.571 561.89,93.067 574.29,96.443 586,99 607.41,103.67 630.27,107.66 652.65,111.02"];
+	_checks -> _rostopic_490_1405438515570 [pos="e,1183.5,18 1107.7,18 1125.4,18 1148.5,18 1173.4,18"];
+	_planification_9172_1405506129110 -> _plans [pos="e,1578.4,126 1541.6,126 1551.2,126 1560.3,126 1568.4,126"];
+	_plans -> _scheduler_11501_1405513142861 [pos="e,1672.4,126 1635.9,126 1643.6,126 1652.6,126 1662.3,126"];
+	_perception_bdi_2428_1405440299042 -> _bdi_attitude [pos="e,445.83,72 409.69,72 418.79,72 427.53,72 435.73,72"];
+	_deliberation_8950_1405505528590 -> _intentions [pos="e,1028.1,126 980.68,126 993.94,126 1006.6,126 1018,126"];
+	_intentions -> _planification_9172_1405506129110 [pos="e,1156.4,126 1119.7,126 1127.9,126 1136.8,126 1146.3,126"];
+}

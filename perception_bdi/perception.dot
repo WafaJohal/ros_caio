@@ -1,0 +1,15 @@
+digraph graphname {
+	graph [rankdir=LR, rank=same];
+	node [label="\N"];
+	graph [bb="0,0,1524,90"];
+	_bdi_attitude [label="/bdi_attitude", URL=topic_3A_bdi_attitude, shape=box, pos="1080,18", width="1.4444", height="0.5"];
+	_stimuli_utterance [label="/stimuli_utterance", URL=topic_3A_stimuli_utterance, shape=box, pos="463,18", width="1.9722", height="0.5"];
+	_json_prolog [label="/json_prolog", URL=_json_prolog, shape=ellipse, pos="178,72", width="1.9444", height="0.51389"];
+	_perception_bdi_30584_1405431694745 [label="/perception_bdi_30584_1405431694745", URL=_perception_bdi_30584_1405431694745, shape=ellipse, pos="781,18", width="5.8333", height="0.51389"];
+	_rostopic_30611_1405431698969 [label="/rostopic_30611_1405431698969", URL=_rostopic_30611_1405431698969, shape=ellipse, pos="178,18", width="4.9444", height="0.51389"];
+	_rostopic_29855_1405431081305 [label="/rostopic_29855_1405431081305", URL=_rostopic_29855_1405431081305, shape=ellipse, pos="1346,18", width="4.9444", height="0.51389"];
+	_stimuli_utterance -> _perception_bdi_30584_1405431694745 [pos="e,570.34,18 534.37,18 542.55,18 551.18,18 560.12,18"];
+	_rostopic_30611_1405431698969 -> _stimuli_utterance [pos="e,391.95,18 356.07,18 364.85,18 373.44,18 381.69,18"];
+	_bdi_attitude -> _rostopic_29855_1405431081305 [pos="e,1167.9,18 1132.2,18 1140.2,18 1148.7,18 1157.6,18"];
+	_perception_bdi_30584_1405431694745 -> _bdi_attitude [pos="e,1027.8,18 991.5,18 1000.6,18 1009.4,18 1017.6,18"];
+}

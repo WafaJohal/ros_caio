@@ -1,0 +1,9 @@
+<launch>
+  <node name="appraisal_emo" pkg="appraisal_emo" type="appraisal_emo.py"> </node>
+  <node name="appraisal_secs" pkg="appraisal_secs" type="appraisal_secs.py"> </node>
+  <node name="deliberation_intentions" pkg="deliberation_intentions" type="deliberation.py"> </node>
+  <node name="scheduling" pkg="scheduling" type="scheduler.py"> </node>
+  <node name="secs_mm_realizer" pkg="secs_mm_realizer" type="action_manager.py"> </node>
+  <node name="planification" pkg="planification" type="planification.py"> </node>
+  <node name="perception_bdi" pkg="perception_bdi" type="perception_bdi.py"> </node>
+</launch>

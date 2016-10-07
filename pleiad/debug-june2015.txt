@@ -1,0 +1,77 @@
+debug en cours - juin 2015
+
+[debug]  ?- goal(naomjk,Prop,D1,T1,Y1).
+Prop = believe(sylvie, news, _G449, _G450),
+D1 = 1,
+T1 = 0,
+Y1 = task ;
+Prop = believe(julie, news, _G449, _G450),
+D1 = 1,
+T1 = 0,
+Y1 = task ;
+
+
+[debug]  ?- bel(naomjk,after(naomjk,SA,Prop),D,T,speech_rule).
+
+SA = speechact(inform, naomjk, _G457, _G458),
+Prop = goal(naomjk, believe(_G457, _G458, 1, 0), 0.7, 0, _G464),
+D = 1,
+T = 0 ;
+
+Mais pas de match
+
+[debug]  ?- goal(naomjk,Prop,D1,T1,Y1),bel(naomjk,after(naomjk,SA,Prop),D,T,speech_rule).
+false.
+
+Si on specifie julie, nao ne peut faire qu'un informval
+
+[debug]  ?- bel(naomjk,after(naomjk,SA,believe(julie,Prop,Deg,Time)),D,T,speech_rule).
+SA = speechact(inform_val, naomjk, julie, value(_G494, _G495)),
+Prop = value(_G494, _G495),
+Deg = 1,
+Time = 0,
+D = 1,
+T = 0 ;
+false.
+
+si on specifie les news, nao ne peut s'informer que lui meme
+
+[debug]  ?- bel(naomjk,after(naomjk,SA,believe(Agt,news,Deg,Time)),D,T,speech_rule).
+SA = speechact(inform, naomjk, naomjk, news),
+Agt = naomjk,
+Deg = 0.75,
+Time = 0,
+D = 1,
+T = 0 ;
+false.
+
+
+
+
+
+[debug]  ?- illoc_force(SA,inform),speaker(SA,naomjk),hearer(SA,julie),prop_content(SA,news),bel(naomjk,before(naomjk,SA,Before),_,_,speech_rule),bel(naomjk,after(naomjk,SA,After),_,_,speech_rule).
+SA = speechact(inform, naomjk, julie, news),
+Before = [believe(naomjk, news, _G699, 0), _G699>0.3],
+After = goal(naomjk, believe(julie, news, 1, 0), 0.7, 0, _G715) ;
+
+SA = speechact(inform, naomjk, julie, news),
+Before = [not(believe(naomjk, believe(julie, news, _G706, _G707), _G701, _G702))],
+After = goal(naomjk, believe(julie, news, 1, 0), 0.7, 0, _G713) ;
+
+
+--> le probleme vient du After 
+qui est un but de nao que julie croie la news
+au lieu d'etre la croyance que julie est au courant de la news
+(apres l'avoir informee, elle est au courant)
+
+--> or le after est asserté par assert_language qui est défini dans speechlib_jeremy)
+pour trouver le fichier où est défini un prédicat donné, un truc utile défini dans pleiad_tools : def_file(Pred,File) 
+par ex
+?- def_file(assert_language,F).
+F = '/Users/carole/Documents/Work SVG/02-PROGRAMMING/01-PLEIAD/PLEIAD_CAIO/ros_caio/pleiad/pleiad_speechlib_jeremy.pl'.
+
+assert_language traduit sans doute mal les send_condition et receive_effects et send_effects en before et after
+--> a corriger
+
+
+
